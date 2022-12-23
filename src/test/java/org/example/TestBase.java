@@ -29,34 +29,34 @@ public class TestBase {
     }
 
     @Step("Открываем главную страницу")
-    public void openMainPage() {
+    public static void openMainPage() {
         open("https://github.com");
     }
 
     @Step("Ищем репозиторий {repo}")
-    public void searchForRepository(String repo) {
+    public static void searchForRepository(String repo) {
         $(".header-search-input").click();
         $(".header-search-input").sendKeys(repo);
         $(".header-search-input").submit();
     }
 
     @Step("Кликаем по ссылке репозитория {repo}")
-    public void clickOnRepositoryLink(String repo) {
+    public static void clickOnRepositoryLink(String repo) {
         $(linkText(repo)).click();
     }
 
     @Step("Открываем таб Issues")
-    public void openIssuesTab() {
+    public static void openIssuesTab() {
         $("#issues-tab").click();
     }
 
     @Step("Проверяем наличие Issue с номером {issue}")
-    public void shouldSeeIssueWithNumber(int issue) {
+    public static void shouldSeeIssueWithNumber(int issue) {
         $(withText("#" + issue)).shouldBe(visible);
     }
 
     @Attachment(value = "Screenshot", type = "image/png", fileExtension = "png")
-    public byte[] takeScreenshot() {
+    public static byte[] takeScreenshot() {
         return ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
 }

@@ -14,13 +14,11 @@ class AnnotationStepsTest extends TestBase {
     @Link(value = "Testing Link", url = "https://testing.github.com")
     @DisplayName("Поиск Issue для неавторизованного пользователя")
     void annotatedStepsTest() {
-        TestBase steps = new TestBase();
-
-        steps.openMainPage();
-        steps.searchForRepository(REPOSITORY);
-        steps.clickOnRepositoryLink(REPOSITORY);
-        steps.openIssuesTab();
-        steps.shouldSeeIssueWithNumber(ISSUE);
-        steps.takeScreenshot();
+        TestBase.openMainPage();
+        TestBase.searchForRepository(REPOSITORY);
+        TestBase.clickOnRepositoryLink(REPOSITORY);
+        TestBase.openIssuesTab();
+        TestBase.shouldSeeIssueWithNumber(ISSUE);
+        TestBase.takeScreenshot();
     }
 }
